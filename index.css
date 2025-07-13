@@ -84,7 +84,6 @@ section .section{
     width: 50%;
     border-radius: 10px;
     height: 95%;
-    max-height: 40em;
     box-shadow: var(--bigshadow);
     display: flex;
     flex-direction: column;
