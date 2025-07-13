@@ -1,0 +1,329 @@
+:root{
+    --textcolor: hsl(0, 0%, 90%);
+    --darkercolor: hsl(0, 0%, 7%);
+    --lightbcolor: hsl(0, 0%, 10%);
+    --halfgrey: hsla(0, 0%, 50%, 0.3);
+    --smallshadow: 3px 3px 10px hsla(0, 0%, 0%, 0.4);
+    --bigshadow: 5px 5px 15px hsla(0, 0%, 0%, 0.4);
+    --greenshade: hsl(120, 80%, 30%);
+    --redshade: hsl(0, 80%, 50%);
+}
+*{
+    padding: 0;
+    margin: 0;
+    transition: 0.2s ease;
+    border-color: var(--textcolor);
+    color: var(--textcolor);
+    font-size: 96%;
+    font-family: 'Poppins', sans-serif;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--halfgrey);
+}
+* button{
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+body{
+    background: var(--lightbcolor);
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+main{
+    height: 100%;
+}
+nav{
+    background-color: var(--darkercolor);
+    box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.5);
+    display: flex;
+    align-items: center;
+    padding: .7em 1.5em;
+    z-index: 5;
+    height: 2.5em;
+}
+nav h1{
+    font-size: 1.2em;
+}
+nav a{
+    margin-left: auto;
+    padding: .3em .8em;
+    border-radius: 5px;
+    font-size: small;
+    color: var(--textcolor);
+    opacity: 0.3;
+    border: .1em solid var(--halfgrey);
+    text-decoration: none;
+    font-style: italic;
+    font-weight: 300;
+    box-shadow: var(--smallshadow);
+    background-color: var(--lightbcolor);
+    text-align: center;
+}
+nav a:hover{
+    color: rgb(0, 255, 0);
+    border-color: rgb(0, 255, 0); 
+    opacity: 0.7;
+}
+section{
+    padding: .8em;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow-y: scroll;
+}
+section .space{
+    padding: .5em;
+}
+section .section{
+    flex: 1 0 49%;
+    width: 50%;
+    border-radius: 10px;
+    height: 95%;
+    max-height: 40em;
+    box-shadow: var(--bigshadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+@media screen and (max-width: 760px) {
+  section .section {
+    flex: 1 0 100%;
+    width: 100%;
+  }
+}
+#addtaskmenu{
+    display: none;
+}
+#addtaskmenu:checked ~ .cover, #addtaskmenu:checked ~ .addtaskdiv {
+    display: flex;
+}
+.tasksection .cover{
+    display: none;
+    position: fixed;
+    z-index: 7;
+    --webkit-backdrop-filter: blur(1px);
+    background: transparent;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.tasksection .addtaskdiv{
+    position: fixed;
+    z-index: 8;
+    width: 65dvw;
+    max-width: 30em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%, 100%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+    border-radius: 10px;
+    box-shadow: var(--bigshadow);
+    animation: zoomin 0.3s ease 1 normal forwards;
+    background-color: var(--darkercolor);
+}
+@keyframes zoomin {
+    from{
+        transform: translate(-50%, -50%) scale(0%, 0%);
+    }
+    to{
+        transform: translate(-50%, -50%) scale(100%, 100%);
+    }
+}
+.addtaskdiv div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    margin: 1em auto .5em auto;
+}
+.canbtn{
+    padding: .05em .3em;
+    box-shadow: var(--smallshadow);
+    border-radius: 5px;
+    background-color: var(--halfgrey);
+    color: var(--textcolor);
+}
+.canbtn:hover{
+    background-color: var(--redshade);
+}
+.addtaskdiv input{
+    width: 85%;
+    padding: .5em .8em;
+    font-size: 1.1em;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-shadow: var(--smallshadow);
+    background: transparent;
+    box-sizing: border-box;
+}
+.addtaskdiv input:hover{
+    background: var(--lightbcolor);
+}
+#addtaskinput:focus {
+    outline: 2px solid var(--greenshade);
+}
+.addtaskdiv .addbtn{
+    width: 83%;
+    text-align: center;
+    padding: .5em 0;
+    border-radius: 7px;
+    margin: .5em auto 1em auto;
+    cursor: pointer;
+    box-shadow: var(--smallshadow);
+    border: 2px solid var(--greenshade);
+    color: var(--greenshade);
+}
+.addbtn:hover{
+    background-color: var(--greenshade);
+    color: var(--textcolor);
+}
+#promptmessage{
+    position: fixed;
+    z-index: 10;
+    top: -110%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: var(--bigshadow);
+    padding: 1em;
+    border-radius: 10px;
+    background-color: var(--lightbcolor);
+    font-weight: 500;
+    text-align: center;
+    width: 50dvw;
+    max-width: 17em;
+}
+.taskheader{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;   
+    padding: .5em 1.5em;
+    height: 2.5em;
+    border-bottom: 2px solid var(--halfgrey);
+    font-size: 1.2em;
+    background-color: var(--darkercolor);
+}
+.taskheader p{
+    display: flex;
+    align-items: center;
+    gap: .3em;
+}
+.taskheader p span{
+    display: flex;
+    align-items: center;
+}
+.taskheader label, .taskheader button{
+    border-radius: 5px; 
+    cursor: pointer;
+    box-shadow: var(--smallshadow);
+    border: 2px solid;
+    background: transparent;
+}
+.taskheader label{
+    padding: 0 .2em;
+    border-color: var(--greenshade);
+    color: var(--greenshade);
+}
+.taskheader button{
+    padding: .3em .5em;
+    border-radius: 7px;
+    font-size: .8em;
+    border-color: var(--redshade);
+    color: var(--redshade);
+}
+.taskheader label:hover{
+    color: var(--textcolor);
+    background-color: var(--greenshade);
+}
+.taskheader button:hover{
+    color: var(--textcolor);
+    background-color: var(--redshade);
+}
+.tasklist{
+    height: 100%;
+    padding: .5em;
+    list-style-type: none;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+.tasklist .li{
+    padding: .5em 1em;
+    box-shadow: var(--smallshadow);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    border: 2px solid transparent
+}
+.li:hover{
+    border-color: var(--halfgrey)
+}
+.li .taskbtns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+.li .taskbtns button{
+    border: 2px solid transparent;
+    box-shadow: var(--smallshadow);
+    font-size: 1.1em;
+}
+.li .taskbtns .button1{
+    border-color: var(--greenshade);
+    border-radius: 7px;
+    background: transparent;
+    color: var(--greenshade);
+    padding: .2em .4em;
+}
+.li .taskbtns .button1:hover{
+    background-color: var(--greenshade);
+    color: var(--textcolor);
+}
+.li .taskbtns .button2{
+    color: var(--textcolor);
+    background: var(--redshade);
+    border-radius: 5px;
+    opacity: 0.7;
+    padding: .2em .4em;
+}
+.li .taskbtns .button2:hover{
+    background-color: var(--redshade);
+    opacity: 1;
+}
+
+.footer{
+    margin: auto 1em 1em 1em;
+    padding: .5em;
+    box-sizing: border-box;
+    border-radius: 15px; 
+    border: .1em solid var(--halfgrey);
+    background-color: var(--darkercolor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5em;
+    box-shadow: var(--bigshadow);
+    text-align: center;
+    z-index: 9;
+}
+.footer p{
+    font-weight: 600;
+    line-height: 1.1em;
+}
+.footer i{
+    font-size: .9em;
+    font-weight: 300;
+    color: var(--halfgrey);
+}

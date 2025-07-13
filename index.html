@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <h1>To-Do-List <span class="bi bi-card-checklist"></span></h1>
+        <a href="https://github.com/primespark001">Prime Spark</a>
+    </nav>
+    <main>
+        <section>
+            <div class="tasksection section">
+                <p id="promptmessage" class="bi"></p>
+                <input type="checkbox" id="addtaskmenu">
+                <div class="cover coverelement"></div>
+                <div class="addtaskdiv">
+                    <div>
+                        <span class="bi bi-pencil">&nbsp;Add Task</span>
+                        <label for="addtaskmenu" class="bi bi-x canbtn" onclick="clearInput()" title="Cancel"></label>
+                    </div>                    
+                    <input type="text" id="addtaskinput" placeholder="Here..." >
+                    <label for="addtaskmenu" class="addbtn" onclick="addTask()" title="Add task">Add</label>
+                </div>
+                <div class="taskheader">
+                    <p>Tasks <span class="bi bi-list-task"></span></i></p>
+                    <label for="addtaskmenu" class="bi bi-plus" title="Add task"></label>
+                </div>
+                <ul class="tasklist" id="tasks">
+                    <!--
+                    <li class="li">
+                        <span class="bi bi-dot">&nbsp;${taskName}</span>
+                        <div class="taskbtns">
+                            <button class="bi bi-check2-circle button1" onclick="markAsDone(task.id)" title="Mark as done">&nbsp;Mark done</button>
+                            <button class="bi bi-trash3 button2" onclick="delTask(task.id)" title="Delete"></button>
+                        </div>
+                    </li>
+                    -->
+                </ul>
+            </div>
+            <div class="donetasksection section" id="donetasks">
+                <div class="taskheader">
+                    <p>Done <span class="bi bi-check2-circle"></span></p>
+                    <button class="clearall" onclick="clearAll()" title="Clear all tasks">Clear all</button>
+                </div>
+                <ul class="tasklist" id="tasksdone">
+                    <!--
+                    <li class="li">
+                        <span class="bi bi-check2-circle">&nbsp;Eat Food</span>
+                        <div class="taskbtns">
+                            <button class="bi bi-trash3 button2" onclick="delTask(task.id)" title="Delete"></button>
+                        </div>
+                    </li>
+                    -->
+                </ul>
+            </div>
+            <div class="space"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>
+            To-Do-List Web App<br>
+            <i>Beginners Template</i>
+        </p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
