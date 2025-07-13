@@ -16,7 +16,7 @@ A simple and lightweight web-based to-do list application built using HTML, CSS,
 
 ## 📷 Screenshot
 
-![To-Do List Web App Screenshot](assets/todolist.png)
+![To-Do List Web App Screenshot](todolist.png)
 
 ## 🛠️ Getting Started
 
